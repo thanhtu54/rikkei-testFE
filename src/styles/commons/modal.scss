@@ -1,0 +1,13 @@
+@import "../variables.scss";
+
+.ant-modal-title {
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  text-align: center;
+}
+
+.ant-modal-body {
+  form {
+    padding-top: 20px;
+  }
+}

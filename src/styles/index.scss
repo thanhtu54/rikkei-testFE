@@ -1,0 +1,19 @@
+@import "./login.scss";
+@import "./register.scss";
+@import "./variables.scss";
+@import "./homepage.scss";
+@import "./commons/button.scss";
+@import "./commons/form.scss";
+@import "./commons/input.scss";
+@import "./reset.scss";
+@import "./commons/modal.scss";
+@import "./layouts/navbar.scss";
+@import "./layouts/header.scss";
+@import "./not-found.scss";
+@import "./commons/breadcrumb.scss";
+@import "./product.scss";
+@import "./commons/pagination.scss";
+
+.wrapper-content {
+  display: flex;
+}

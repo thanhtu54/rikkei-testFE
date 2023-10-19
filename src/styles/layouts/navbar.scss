@@ -1,0 +1,50 @@
+@import "../variables.scss";
+
+.wrapper-navbar {
+  height: calc(100vh - 95px);
+  .ant-menu {
+    padding: 15px;
+    padding-top: 11px;
+  }
+
+  .ant-menu {
+    height: 100%;
+    :where(.css-dev-only-do-not-override-3mqfnx).ant-menu-light
+      .ant-menu-item-selected,
+    :where(.css-dev-only-do-not-override-3mqfnx).ant-menu-light
+      > .ant-menu
+      .ant-menu-item-selected {
+      background-color: $base-color !important;
+      color: black !important;
+    }
+
+    .ant-menu-item {
+      padding-left: 15px !important;
+      &:active {
+        background-color: $base-color !important;
+        color: black !important;
+      }
+    }
+
+    .ant-menu-item-selected {
+      &:focus {
+        background-color: $base-color;
+        color: black;
+      }
+
+      &:focus-within {
+        background-color: $base-color;
+        color: black;
+      }
+    }
+  }
+
+  :where(.css-dev-only-do-not-override-3mqfnx).ant-menu-light
+    .ant-menu-item-selected,
+  :where(.css-dev-only-do-not-override-3mqfnx).ant-menu-light
+    > .ant-menu
+    .ant-menu-item-selected {
+    background-color: $base-color !important;
+    color: black !important;
+  }
+}

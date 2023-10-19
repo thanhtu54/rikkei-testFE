@@ -1,0 +1,30 @@
+.wrapper-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 15px;
+  border-bottom: 1px solid rgba(5, 5, 5, 0.06);
+  &__logo {
+    width: 220px;
+    display: flex;
+    justify-content: center;
+    img {
+      width: 160px;
+      height: 60px;
+      box-sizing: content-box;
+    }
+  }
+
+  span {
+    text-align: center;
+  }
+
+  span {
+    cursor: pointer;
+  }
+}
+
+.ant-dropdown-menu-item {
+  text-align: center;
+}

@@ -1,0 +1,14 @@
+@import "../variables.scss";
+
+.form {
+  padding: 20px;
+  background-color: $white-color;
+  border-radius: 10px;
+  min-width: 500px;
+  box-shadow: $box-shadow;
+  form {
+    .ant-form-item {
+      margin-bottom: 24px;
+    }
+  }
+}

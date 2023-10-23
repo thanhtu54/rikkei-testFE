@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import axiosInstance from "../libs/axios";
 
 export const useProduct = () => {
   const [loading, setLoading] = useState(false);
@@ -7,7 +8,7 @@ export const useProduct = () => {
   const getCategories = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("https://mystoreapi.com/catalog/categories");
+      const res = await axiosInstance.get("/catalog/categories");
       setLoading(false);
       return res;
     } catch (error) {
@@ -25,7 +26,7 @@ export const useProduct = () => {
 
       if (category?.length === 0) {
         setLoading(true);
-        const res = await axios.get("https://mystoreapi.com/catalog/products", {
+        const res = await axiosInstance.get("/catalog/products", {
           params: dataParams,
         });
         setLoading(false);
@@ -35,13 +36,10 @@ export const useProduct = () => {
         const res = await axios
           .all(
             category.map((item) =>
-              axios
-                .get(
-                  `https://mystoreapi.com/catalog/category/${item}/products`,
-                  {
-                    params: dataParams,
-                  }
-                )
+              axiosInstance
+                .get(`/catalog/category/${item}/products`, {
+                  params: dataParams,
+                })
                 .then((data) => {
                   return data.data;
                 })

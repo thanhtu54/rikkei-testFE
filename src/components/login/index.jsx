@@ -18,11 +18,15 @@ const Login = () => {
   };
 
   const onFinish = (values) => {
-    loginUser(values).then((res) => {
-      localStorage.setItem("token", res.data.access_token);
-      message.success("Login Success!", 3);
-      navigate("/");
-    });
+    loginUser(values)
+      .then((res) => {
+        localStorage.setItem("token", res.data.access_token);
+        message.success("Login Success!", 3);
+        navigate("/");
+      })
+      .catch((err) => {
+        message.error(`Login Failed! ${err.response.data.message}`, 3);
+      });
   };
 
   const onFinishFailed = (errorInfo) => {

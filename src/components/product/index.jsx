@@ -67,7 +67,6 @@ const Product = () => {
   ];
 
   const handleSelect = (value) => {
-    console.log(value);
     setValue(value);
   };
 

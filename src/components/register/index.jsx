@@ -10,10 +10,14 @@ const Register = ({ isModalOpen, handleOk, handleCancel }) => {
     createUser({
       username: values.username,
       password: values.password,
-    }).then(() => {
-      message.success("Signup Success!", 3);
-      onCancel();
-    });
+    })
+      .then(() => {
+        message.success("Sign Up Success!", 3);
+        onCancel();
+      })
+      .catch((err) => {
+        message.error(`Sign Up Failed!! ${err.response.data.message}`, 3);
+      });
   };
 
   const onFinishFailed = (errorInfo) => {

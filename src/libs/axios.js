@@ -1,15 +1,16 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "https://mystoreapi.com",
+  baseURL: "https://cors-anywhere.herokuapp.com/https://mystoreapi.com",
 });
 
 axiosInstance.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
+    // khong fix duoc loi CORS duoc
+    // const token = localStorage.getItem("token");
+    // if (token) {
+    //   config.headers.Authorization = `Bearer ${token}`;
+    // }
     return config;
   },
   (error) => {

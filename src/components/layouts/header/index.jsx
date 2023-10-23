@@ -1,21 +1,31 @@
 import { Avatar, Dropdown, message } from "antd";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import useUser from "../../../api/useUser";
 
 const Header = () => {
   const { getUser } = useUser();
   const [user, setUser] = useState([]);
+  const navigate = useNavigate();
 
-  const handleClickAvatar = () => {
-    getUser().then((res) => {
-      setUser(res?.data);
-    });
-  };
+  useEffect(() => {
+    getUser()
+      .then((res) => {
+        setUser(res?.data);
+      })
+      .catch((err) => {
+        if (err.response.status === 401) {
+          message.warning("Your session has expired. Please log in again!", 3);
+          localStorage.removeItem("token");
+          navigate("/login");
+        }
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleClick = () => {
     localStorage.removeItem("token");
-    message.success("Logout success!");
+    message.success("Logout success!", 3);
   };
 
   const items = [
@@ -55,7 +65,6 @@ const Header = () => {
           arrow
         >
           <Avatar
-            onClick={handleClickAvatar}
             size={64}
             src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
           />
